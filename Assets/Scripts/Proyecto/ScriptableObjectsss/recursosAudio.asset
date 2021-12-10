@@ -34,3 +34,6 @@ MonoBehaviour:
   - nombre: Tiburon
     audio: {fileID: 8300000, guid: d691721f27a9c9b4aa1dc174bf374615, type: 3}
     CharacterImage: {fileID: 21300000, guid: 5006756fd3b6efc49a42635a56c3321e, type: 3}
+  - nombre: Felicitacion
+    audio: {fileID: 8300000, guid: ee008caf75c650843998f26e1ba6644c, type: 3}
+    CharacterImage: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}

@@ -46,11 +46,6 @@ public class validaJuegoDos : MonoBehaviour
 
             }
 
-            //Mostar en la pantalla una felicitación
-
-            //Si fue correcto, cambiar el juego seleccionado a 0
-
-            //Reiniciar el indice del dialog
         }
     }
 
@@ -65,5 +60,6 @@ public class validaJuegoDos : MonoBehaviour
         imageCharacter.sprite = null;
         currentMission.text = "";
         conversaMaestraF.indice = 0;
+        RayCastC.nombreSeleccionado = "";
     }
 }

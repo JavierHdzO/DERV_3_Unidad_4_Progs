@@ -21,7 +21,7 @@ public class Recurso : ScriptableObject
 
     public int lenghtRecursos()
     {
-        return recursos.Length;
+        return recursos.Length -1;
     }
 
  

@@ -62,7 +62,6 @@ public class conversaMaestraF : MonoBehaviour
                 textMesh.text = dialogo.conversacionMaestra[indice].nombrePersonaje + ": " + dialogo.conversacionMaestra[indice].Message;
                 textMesh.maxVisibleCharacters = 0;
 
-                AnimacionMiss.isCorrect = false;
                 StopAllCoroutines();
                 StartCoroutine("mostrarTexto");
             }
@@ -97,7 +96,7 @@ public class conversaMaestraF : MonoBehaviour
             indice--;
             textMesh.text = dialogo.conversacionMaestra[indice].nombrePersonaje +
              ": " + dialogo.conversacionMaestra[indice].Message;
-          //  imageCharacter.sprite = dialogo.conversacionKarolina[indice].CharacterImage;
+
 
             textMesh.maxVisibleCharacters = 0;
             StopAllCoroutines();
@@ -105,16 +104,26 @@ public class conversaMaestraF : MonoBehaviour
         }
 
         if (indice == dialogo.conversacioMaestraLength() - 1)
-        {/*MODIFICAR ESTA PARTE*/
+        {
             missionContainer.SetActive(true);
             
             indiceAud =   Random.Range(0, recursos.lenghtRecursos());
-            //recursos.recursos[indiceAud].
             StartCoroutine("reto");
             
 
             // Mario.SetActive(true);
 
+        }
+
+        if (AnimacionMiss.isCorrect)
+        {
+
+            indiceAud = recursos.recursos.Length -1;
+            source.clip = recursos.recursos[indiceAud].audio;
+            source.Stop();
+            source.Play();
+
+            AnimacionMiss.isCorrect = false;
         }
 
     }
