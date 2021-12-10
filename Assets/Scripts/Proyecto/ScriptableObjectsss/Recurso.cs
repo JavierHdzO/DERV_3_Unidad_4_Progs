@@ -7,7 +7,6 @@ using UnityEngine;
 public class Recurso : ScriptableObject
 {
 
-
     [System.Serializable]
     public struct Recursos
     {

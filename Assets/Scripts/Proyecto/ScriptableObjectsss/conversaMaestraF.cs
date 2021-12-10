@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class conversaMaestraF : MonoBehaviour
 {
+    public static string nombreReto = "";
 
     [SerializeField]
     DialogoF dialogo;
@@ -20,10 +21,12 @@ public class conversaMaestraF : MonoBehaviour
    // public GameObject Mario;
 
     private AudioSource source;
+    static string nameObject;
 
     int indice = 0;
     bool isOnTrigger;
     bool isItRunning;
+    int indiceAud;
 
     private void Awake()
     {
@@ -60,8 +63,6 @@ public class conversaMaestraF : MonoBehaviour
                 StopAllCoroutines();
                 StartCoroutine("mostrarTexto");
             }
-
-            
 
             isOnTrigger = true;
         }
@@ -104,14 +105,10 @@ public class conversaMaestraF : MonoBehaviour
         {/*MODIFICAR ESTA PARTE*/
             missionContainer.SetActive(true);
             
-            int indiceAud =   Random.Range(0, recursos.lenghtRecursos());
+            indiceAud =   Random.Range(0, recursos.lenghtRecursos());
             //recursos.recursos[indiceAud].
-
-            currentMission.SetText(recursos.recursos[indiceAud].nombre);
-            imageCharacter.sprite = recursos.recursos[indiceAud].CharacterImage;
-            source.clip = recursos.recursos[indiceAud].audio;
-            source.Play();
-            indice++;
+            StartCoroutine("reto");
+            
 
             // Mario.SetActive(true);
 
@@ -136,6 +133,23 @@ public class conversaMaestraF : MonoBehaviour
 
     }
 
+    IEnumerator reto()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            yield return new WaitForSeconds(1f);
+        }
+        
 
+        nameObject = recursos.recursos[indiceAud].nombre;
+        currentMission.SetText(nameObject);
+        imageCharacter.sprite = recursos.recursos[indiceAud].CharacterImage;
+        source.clip = recursos.recursos[indiceAud].audio;
+        source.Play();
+        indice++;
+
+        nombreReto = nameObject;
+        RayCastC.juegoSelecionado = 2;
+    }
 
 }
