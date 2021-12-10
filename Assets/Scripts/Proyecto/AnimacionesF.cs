@@ -17,7 +17,7 @@ public class AnimacionesF : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             animator.SetBool("isWalk", true);
                

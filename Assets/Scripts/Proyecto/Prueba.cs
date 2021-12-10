@@ -2,17 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Prueba : MonoBehaviour
+
+[CreateAssetMenu(fileName = "Audio_", menuName = "AudiosObj/insertarAudios", order = 1)]
+public class Prueba : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    [System.Serializable]
+    public struct Recurso
     {
-        
+        public string nombre;
+        public AudioClip audio;
+        public Sprite CharacterImage;
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public Recurso[] recursos;
+
+    public int lenghtRecursos()
     {
-        
+        return recursos.Length;
     }
+
+ 
 }
