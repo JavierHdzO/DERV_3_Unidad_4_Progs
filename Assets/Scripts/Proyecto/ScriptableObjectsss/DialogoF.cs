@@ -17,7 +17,7 @@ public class DialogoF : ScriptableObject
 
     public Conversation[] conversacionMaestra;
 
-    public int conversacionKaroLength()
+    public int conversacioMaestraLength()
     {
         return conversacionMaestra.Length;
     }

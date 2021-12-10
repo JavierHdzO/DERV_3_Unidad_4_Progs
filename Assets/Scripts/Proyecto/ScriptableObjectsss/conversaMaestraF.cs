@@ -2,18 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class conversaMaestraF : MonoBehaviour
 {
 
     [SerializeField]
     DialogoF dialogo;
+    [SerializeField]
+    Recurso recursos;
+
     public GameObject mainContainer;
     public GameObject missionContainer;
-   // public Image imageCharacter;
+    public Image imageCharacter;
     public TextMeshProUGUI textMesh;
     public TextMeshProUGUI currentMission;
    // public GameObject Mario;
+
+    private AudioSource source;
+
     int indice = 0;
     bool isOnTrigger;
     bool isItRunning;
@@ -24,7 +31,9 @@ public class conversaMaestraF : MonoBehaviour
        // imageCharacter = mainContainer.GetComponentInChildren<Image>();
         textMesh = mainContainer.GetComponentInChildren<TextMeshProUGUI>();
         missionContainer = GameObject.Find("CanvasTablero");
+        imageCharacter = missionContainer.GetComponentInChildren<Image>();
         currentMission = missionContainer.GetComponentInChildren<TextMeshProUGUI>();
+        source = GetComponent<AudioSource>();
       //  Mario = GameObject.Find("Mario");
     }
 
@@ -42,12 +51,15 @@ public class conversaMaestraF : MonoBehaviour
     {
         if (other.name.Equals("TPoseP"))
         {
-            mainContainer.SetActive(true);
-            textMesh.text = dialogo.conversacionMaestra[indice].nombrePersonaje + ": " + dialogo.conversacionMaestra[indice].Message;
-            //imageCharacter.sprite = dialogo.conversacionKarolina[indice].CharacterImage;
-            textMesh.maxVisibleCharacters = 0;
-            StopAllCoroutines();
-            StartCoroutine("mostrarTexto");
+            if (indice < dialogo.conversacioMaestraLength())
+            {
+                mainContainer.SetActive(true);
+                textMesh.text = dialogo.conversacionMaestra[indice].nombrePersonaje + ": " + dialogo.conversacionMaestra[indice].Message;
+                //imageCharacter.sprite = dialogo.conversacionKarolina[indice].CharacterImage;
+                textMesh.maxVisibleCharacters = 0;
+                StopAllCoroutines();
+                StartCoroutine("mostrarTexto");
+            }
 
             
 
@@ -64,7 +76,7 @@ public class conversaMaestraF : MonoBehaviour
     void Update()
     {
         if ((isOnTrigger) && (Input.GetKeyDown(KeyCode.E)) &&
-            (indice < dialogo.conversacionKaroLength() - 1) &&
+            (indice < dialogo.conversacioMaestraLength() - 1) &&
             (!isItRunning))
         {
             indice++;
@@ -88,12 +100,20 @@ public class conversaMaestraF : MonoBehaviour
             StartCoroutine("mostrarTexto");
         }
 
-        if (indice == dialogo.conversacionKaroLength() - 1)
+        if (indice == dialogo.conversacioMaestraLength() - 1)
         {/*MODIFICAR ESTA PARTE*/
             missionContainer.SetActive(true);
-            currentMission.SetText("Mision: Trae a Mario a la ubicacion de Karolina");
-           // Mario.SetActive(true);
-            StartCoroutine("eliminarTrigger");
+            
+            int indiceAud =   Random.Range(0, recursos.lenghtRecursos());
+            //recursos.recursos[indiceAud].
+
+            currentMission.SetText(recursos.recursos[indiceAud].nombre);
+            imageCharacter.sprite = recursos.recursos[indiceAud].CharacterImage;
+            source.clip = recursos.recursos[indiceAud].audio;
+            source.Play();
+            indice++;
+
+            // Mario.SetActive(true);
 
         }
     }

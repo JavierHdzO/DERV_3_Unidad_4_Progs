@@ -4,10 +4,12 @@ using UnityEngine;
 
 
 [CreateAssetMenu(fileName = "Audio_", menuName = "AudiosObj/insertarAudios", order = 1)]
-public class Prueba : ScriptableObject
+public class Recurso : ScriptableObject
 {
+
+
     [System.Serializable]
-    public struct Recurso
+    public struct Recursos
     {
         public string nombre;
         public AudioClip audio;
@@ -15,7 +17,7 @@ public class Prueba : ScriptableObject
 
     }
 
-    public Recurso[] recursos;
+    public Recursos[] recursos;
 
     public int lenghtRecursos()
     {
