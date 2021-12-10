@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class RayCastC : MonoBehaviour
 {
-    public static int juegoSelecionado = 0;
     public static string nombreSeleccionado = "";
 
     private string selectableTag = "Seleectable";

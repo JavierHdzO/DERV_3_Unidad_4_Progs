@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class AnimacionesF : MonoBehaviour
 {
-    // Start is called before the first frame update
+
+
 
     [SerializeField]
     Animator animator;
+
 
     void Start()
     {
@@ -28,6 +30,10 @@ public class AnimacionesF : MonoBehaviour
             animator.SetBool("isWalk", false);
 
         }
+
+
+
+        
 
 
     }

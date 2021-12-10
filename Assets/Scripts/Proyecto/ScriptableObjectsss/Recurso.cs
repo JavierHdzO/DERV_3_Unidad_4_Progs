@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Audio_", menuName = "AudiosObj/insertarAudios", order = 1)]
 public class Recurso : ScriptableObject
 {
+    public static int juegoSeleccionado = 0;
 
     [System.Serializable]
     public struct Recursos

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class conversaMaestraF : MonoBehaviour
 {
     public static string nombreReto = "";
+    public static int indice = 0;
 
     [SerializeField]
     DialogoF dialogo;
@@ -18,12 +19,14 @@ public class conversaMaestraF : MonoBehaviour
     public Image imageCharacter;
     public TextMeshProUGUI textMesh;
     public TextMeshProUGUI currentMission;
+    public GameObject Maestra;
    // public GameObject Mario;
 
-    private AudioSource source;
+    private  AudioSource source;
+    private Animator animator;
     static string nameObject;
 
-    int indice = 0;
+    
     bool isOnTrigger;
     bool isItRunning;
     int indiceAud;
@@ -31,13 +34,12 @@ public class conversaMaestraF : MonoBehaviour
     private void Awake()
     {
         mainContainer = GameObject.Find("DialogoJuegoF");
-       // imageCharacter = mainContainer.GetComponentInChildren<Image>();
         textMesh = mainContainer.GetComponentInChildren<TextMeshProUGUI>();
         missionContainer = GameObject.Find("CanvasTablero");
         imageCharacter = missionContainer.GetComponentInChildren<Image>();
         currentMission = missionContainer.GetComponentInChildren<TextMeshProUGUI>();
         source = GetComponent<AudioSource>();
-      //  Mario = GameObject.Find("Mario");
+
     }
 
 
@@ -58,8 +60,9 @@ public class conversaMaestraF : MonoBehaviour
             {
                 mainContainer.SetActive(true);
                 textMesh.text = dialogo.conversacionMaestra[indice].nombrePersonaje + ": " + dialogo.conversacionMaestra[indice].Message;
-                //imageCharacter.sprite = dialogo.conversacionKarolina[indice].CharacterImage;
                 textMesh.maxVisibleCharacters = 0;
+
+                AnimacionMiss.isCorrect = false;
                 StopAllCoroutines();
                 StartCoroutine("mostrarTexto");
             }
@@ -113,6 +116,7 @@ public class conversaMaestraF : MonoBehaviour
             // Mario.SetActive(true);
 
         }
+
     }
 
 
@@ -149,7 +153,7 @@ public class conversaMaestraF : MonoBehaviour
         indice++;
 
         nombreReto = nameObject;
-        RayCastC.juegoSelecionado = 2;
+        Recurso.juegoSeleccionado = 2;
     }
 
 }

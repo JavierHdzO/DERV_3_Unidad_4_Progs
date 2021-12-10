@@ -896,6 +896,12 @@ MonoBehaviour:
   imageCharacter: {fileID: 0}
   textMesh: {fileID: 0}
   currentMission: {fileID: 0}
+  Maestra: {fileID: 0}
+--- !u!95 &264707822 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: 08ef837bfd9995f4cb5b7efc0cbbe5bb, type: 3}
+  m_PrefabInstance: {fileID: 2074629762}
+  m_PrefabAsset: {fileID: 0}
 --- !u!65 &264707823
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -925,6 +931,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 36
   m_CollisionDetection: 0
+--- !u!114 &264707825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264707820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa8ff33acead4cf40834bfcb02af54ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 264707822}
+  audioClip: {fileID: 8300000, guid: ee008caf75c650843998f26e1ba6644c, type: 3}
 --- !u!82 &264707826
 AudioSource:
   m_ObjectHideFlags: 0
@@ -5652,6 +5672,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cam: {fileID: 1458725432}
   image: {fileID: 2051452706}
+--- !u!114 &1960512598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1960512590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5855e418ee9337b4881cc6dfc2a05e3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  missionContainer: {fileID: 0}
+  imageCharacter: {fileID: 0}
+  currentMission: {fileID: 0}
+  Maestra: {fileID: 0}
 --- !u!65 &1960512599
 BoxCollider:
   m_ObjectHideFlags: 0
