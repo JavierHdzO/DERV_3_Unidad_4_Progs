@@ -10,8 +10,8 @@ public class AnimacionMiss : MonoBehaviour
     Animator animator;
 
   
-    [SerializeField]
-    public static AudioClip audioClip;
+    //[SerializeField]
+    //public static AudioClip audioClip;
     // Start is called before the first frame update
 
     private void Start()
@@ -26,12 +26,9 @@ public class AnimacionMiss : MonoBehaviour
             animator.SetBool("isCorrect", true);
             
 
-        }
-
-        if (!isCorrect)
+        }else
         {
             animator.SetBool("isCorrect", false);
-
         }
     }
 }

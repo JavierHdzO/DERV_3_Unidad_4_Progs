@@ -123,7 +123,8 @@ public class conversaMaestraF : MonoBehaviour
             source.Stop();
             source.Play();
 
-            AnimacionMiss.isCorrect = false;
+            StartCoroutine("aplaudir");
+            
         }
 
     }
@@ -163,6 +164,19 @@ public class conversaMaestraF : MonoBehaviour
 
         nombreReto = nameObject;
         Recurso.juegoSeleccionado = 2;
+    }
+
+
+
+    IEnumerator aplaudir()
+    {
+        for (int i = 0; i < 1; i++)
+        {
+            yield return new WaitForSeconds(5f);
+        }
+
+
+        AnimacionMiss.isCorrect = false;
     }
 
 }

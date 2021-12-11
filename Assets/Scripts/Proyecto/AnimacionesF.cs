@@ -30,11 +30,7 @@ public class AnimacionesF : MonoBehaviour
             animator.SetBool("isWalk", false);
 
         }
-
-
-
-        
-
+      
 
     }
 }
